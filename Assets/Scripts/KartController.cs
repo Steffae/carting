@@ -25,6 +25,11 @@ public class KartController : MonoBehaviour
     [Header("Input (New Input System)")]
     [SerializeField] private InputActionReference _moveActionRef;
 
+    // Ручной тормоз
+    [Header("Handbrake")]
+    [SerializeField] private InputActionReference _handbrakeActionRef;
+    private bool _isHandbrakeActive;
+
     private float _throttleInput; // -1..1
     private float _steerInput;    // -1..1
 
@@ -93,12 +98,18 @@ public class KartController : MonoBehaviour
     {
         if (_moveActionRef != null && _moveActionRef.action != null)
             _moveActionRef.action.Enable();
+
+        if (_handbrakeActionRef != null && _handbrakeActionRef.action != null)
+            _handbrakeActionRef.action.Enable();
     }
 
     private void OnDisable()
     {
         if (_moveActionRef != null && _moveActionRef.action != null)
             _moveActionRef.action.Disable();
+
+        if (_handbrakeActionRef != null && _handbrakeActionRef.action != null)
+            _handbrakeActionRef.action.Disable();
     }
 
     private void ReadInput()
@@ -106,6 +117,10 @@ public class KartController : MonoBehaviour
         Vector2 move = _moveActionRef.action.ReadValue<Vector2>();
         _steerInput = Mathf.Clamp(move.x, -1f, 1f);
         _throttleInput = Mathf.Clamp(move.y, -1f, 1f);
+
+        // Ручной тормоз
+        if (_handbrakeActionRef != null && _handbrakeActionRef.action != null)
+            _isHandbrakeActive = _handbrakeActionRef.action.ReadValue<float>() > 0.5f;
     }
 
     private void RotateFrontWheels()
@@ -166,8 +181,18 @@ public class KartController : MonoBehaviour
         // 2) сопротивление качению
         Fx += -_rollingResistance * vLong;
 
-        // 3) боковая сила
-        Fy += -_lateralStiffness * vLat;
+        // 3) боковая сила (отключается при ручном тормозе для задних колёс)
+        if (isDriven && _isHandbrakeActive)
+        {
+            // Отключаем боковую силу (Cα = 0)
+            Fy = 0f;
+            // Увеличиваем сопротивление качению
+            Fx += -_rollingResistance * vLong * 5f;
+        }
+        else
+        {
+            Fy += -_lateralStiffness * vLat;
+        }
 
         // 4) фрикционный круг
         float frictionLimit = _frictionCoefficient * normalForce; // μ * N
@@ -185,5 +210,5 @@ public class KartController : MonoBehaviour
 
         _rb.AddForceAtPosition(force, wheelPos, ForceMode.Force);
     }
-
+    public bool IsHandbrakeActive => _isHandbrakeActive;
 }
