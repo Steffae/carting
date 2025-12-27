@@ -346,7 +346,7 @@ public class KartTelemetryUI : MonoBehaviour
             GUI.Label(new Rect(startX, startY + lineHeight * currentLine++, 300, 30),
                      $"Крен: {rollAngle:F2}°", style);
         }
-
+        /* ЗАДАНИЕ 3
         // --- ОСТАЛЬНЫЕ ПАРАМЕТРЫ ---
         currentLine++;
 
@@ -393,5 +393,6 @@ public class KartTelemetryUI : MonoBehaviour
             GUI.Label(new Rect(startX, startY + lineHeight * currentLine++, 300, 30),
                      $"Ввод: Газ: {throttle:F2}, Поворот: {steer:F2}", style);
         }
+        */
     }
 }

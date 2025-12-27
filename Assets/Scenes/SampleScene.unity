@@ -1021,13 +1021,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981331361}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2705205871480703500}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1080127481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,13 +1323,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559844826}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932385601567421616}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1676279770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1825,13 +1825,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965150836}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8802306315256070052}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2099900057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,13 +1856,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099900057}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5496221649873250017}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &27722851330869321
 Transform:
   m_ObjectHideFlags: 0
@@ -2538,9 +2538,9 @@ GameObject:
   - component: {fileID: 1105559988741555735}
   - component: {fileID: 1105559988741555734}
   - component: {fileID: 1105559988741555733}
-  - component: {fileID: 1105559988741555732}
   - component: {fileID: 1105559988741555737}
   - component: {fileID: 1105559988741555738}
+  - component: {fileID: 1105559988741555732}
   m_Layer: 0
   m_Name: kart 1
   m_TagString: Untagged
@@ -2656,8 +2656,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.055859, y: 1.3210355, z: 5.381027}
-  m_Center: {x: 0.023638725, y: 0.6431959, z: 0.3467002}
+  m_Size: {x: 2.055859, y: 1.3337556, z: 5.381027}
+  m_Center: {x: 0.023638725, y: 0.6368359, z: 0.3467002}
 --- !u!54 &1105559988741555736
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2703,11 +2703,11 @@ MonoBehaviour:
   rr: {fileID: 1965150837}
   restLength: 0.4
   springTravel: 0.2
-  springStiffness: 20000
-  damperStiffness: 3500
+  springStiffness: 1250
+  damperStiffness: 30
   wheelRadius: 0.35
-  frontAntiRollStiffness: 8000
-  rearAntiRollStiffness: 6000
+  frontAntiRollStiffness: 250
+  rearAntiRollStiffness: 150
 --- !u!114 &1105559988741555738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2721,13 +2721,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KartAero
   airDensity: 1.225
-  dragCoefficient: 0.9
+  dragCoefficient: 4
   frontalArea: 0.6
   rearWing: {fileID: 1692774451}
   wingArea: 0.4
   liftCoefficientSlope: 0.05
   wingAngleDeg: 10
-  groundEffectStrength: 7
+  groundEffectStrength: 20
   groundRayLength: 1
 --- !u!1 &1128830893188438306
 GameObject:
